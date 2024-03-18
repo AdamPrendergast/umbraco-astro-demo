@@ -1,0 +1,10 @@
+---
+import Layout from '../layouts/Layout.astro';
+const res = await fetch("http://localhost:15922/umbraco/delivery/api/v2/content/item");
+const page = await res.json();
+---
+
+<Layout>
+	<h1>{page.properties.title}</h1>
+	<p>{page.properties.subtitle}</p>
+</Layout>

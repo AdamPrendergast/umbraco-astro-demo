@@ -1,0 +1,15 @@
+---
+import Layout from '../../layouts/Layout.astro';
+const res = await fetch('http://localhost:15922/umbraco/delivery/api/v2/content?filter=contentType:article');
+const articles = await res.json();
+---
+
+<Layout>
+	<h1>Blog</h1>
+	{
+        articles.items.map((article: any) => (
+            <h1>{article.name}</h1>
+            <p>{article.properties.articleDate}</p>
+        ))
+    }
+</Layout>
